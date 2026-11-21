@@ -16,6 +16,7 @@
 ## 数据文件
 
 - `data/orders.csv`
+- `data/sessions.csv`
 - `data/payments.csv`
 - `data/refunds.csv`
 - `data/course_versions.csv`

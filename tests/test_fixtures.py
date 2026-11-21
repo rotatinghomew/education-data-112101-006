@@ -16,5 +16,16 @@ class FixtureIntegrityTests(unittest.TestCase):
                 self.assertTrue(rows)
                 self.assertTrue(all(set(row) == set(reader.fieldnames) for row in rows))
 
+    def test_orders_reference_known_sales_sessions(self):
+        def read_rows(name):
+            with (ROOT / "data" / name).open(encoding="utf-8", newline="") as stream:
+                return list(csv.DictReader(stream))
+
+        sessions = {row["session_ref"] for row in read_rows("sessions.csv")}
+        orders = read_rows("orders.csv")
+        self.assertTrue(sessions)
+        self.assertTrue(all(row["session_ref"] in sessions for row in orders))
+        self.assertTrue(all(row["sales_method"] for row in read_rows("sessions.csv")))
+
 if __name__ == "__main__":
     unittest.main()
