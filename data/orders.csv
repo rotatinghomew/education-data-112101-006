@@ -1,0 +1,4 @@
+order_ref,household_ref,course_ref,session_ref,ordered_at,gross_amount,parent_order,state
+O-1,H-1,K-1,L-1,2026-01-28,6000,,upgraded
+O-2,H-1,K-2,L-2,2026-02-01,9000,O-1,active
+O-3,H-2,K-1,L-3,2026-02-05,2400,,disputed
